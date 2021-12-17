@@ -1,0 +1,12 @@
+<div class="container-main">
+    <div class="button-container">
+        <input  class="form-control" (change)="setImageData($event)" type="file">
+    </div>
+    <div class="collection-container">
+        <div  *ngFor="let image of collection;let i = index" >
+            <img [src]="image.path" alt="">
+            <span  [ngClass]="active === i ? 'strike' : '' ">{{ image.name }}</span>
+            <button class="btn btn-danger" (click)="active = i" (click)="deleteImage(image.id)">Видвлити</button>
+        </div>
+    </div>
+</div>
